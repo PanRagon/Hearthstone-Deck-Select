@@ -2,11 +2,26 @@ var html = document.getElementById("html");
 var btn = document.getElementById("battletagBtn");
 
 btn.addEventListener("click", function() {
+    var goToPickPage = true;
     var picksCount = document.getElementById("picksCount").value;
     var myBattletag = document.getElementById("myBattletag").value;
     var enemyBattletag = document.getElementById("enemyBattletag").value;
     var bansCount = document.getElementById("bansCount").value;
-    renderPicksHTML(myBattletag, enemyBattletag, picksCount, bansCount)
+    if(myBattletag == "") {
+        alert("Please enter a battletag for yourself");
+        return;
+    }
+    if(enemyBattletag == ""){
+        alert("Please enter a battletag for your opponent");
+        goToPickPage = false;
+        return;
+    }
+    if(picksCount <= bansCount) {
+        alert("You need to pick more heroes than you ban");
+        return;
+    }
+        renderPicksHTML(myBattletag, enemyBattletag, picksCount, bansCount)
+    
 })
 
 function renderPicksHTML(myBattletag, enemyBattletag, picks, bans) {
@@ -46,7 +61,12 @@ function renderPicksHTML(myBattletag, enemyBattletag, picks, bans) {
             <image id="enemyWarlock" class="classLogo" src="images/warlock.png"></image>
             <image id="enemyWarrior" class="classLogo" src="images/warrior.png"></image>
         </div>
+        
     </div>
+    <footer id="footer">
+        <p>Created by: <a href="https://github.com/panragon">PanRagon</a></p>
+        <p>Contact me on <a href="https://twitter.com/PanRagon">Twitter</a> or <a href="mailto:christian.nicolai.iversen@gmail.com">email</a></p>
+    </footer>
     <script src="index.js"></script>
 </body>`
 }
