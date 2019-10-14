@@ -1,0 +1,16 @@
+.classLogo {
+    width: 50px;
+    position: relative;
+}
+
+#leftScreen {
+    position: absolute;
+    left: 0%;
+    top: 30%;
+}
+
+#rightScreen {
+    position: absolute;
+    right: 0%;
+    top: 30%;
+}
