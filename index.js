@@ -1,13 +1,18 @@
 var html = document.getElementById("html");
 var btn = document.getElementById("battletagBtn");
+$("imagePicker").imagepicker({limit: 3});
 
+var picksCount = 0;
+var bansCount = 0;
+var myBattletag = "";
+var enemyBattletag = "";
 
 btn.addEventListener("click", function() {
     var goToPickPage = true;
-    var picksCount = document.getElementById("picksCount").value;
-    var myBattletag = document.getElementById("myBattletag").value;
-    var enemyBattletag = document.getElementById("enemyBattletag").value;
-    var bansCount = document.getElementById("bansCount").value;
+    picksCount = document.getElementById("picksCount").value;
+    myBattletag = document.getElementById("myBattletag").value;
+    enemyBattletag = document.getElementById("enemyBattletag").value;
+    bansCount = document.getElementById("bansCount").value;
     if(myBattletag == "") {
         alert("Please enter a battletag for yourself");
         return;
@@ -21,11 +26,11 @@ btn.addEventListener("click", function() {
         alert("You need to pick more heroes than you ban");
         return;
     }
-        renderPicksHTML(myBattletag, enemyBattletag, picksCount, bansCount)
+    window.location="picks.html";
     
 })
 
-function renderPicksHTML(myBattletag, enemyBattletag, picks, bans) {
+function renderPicksHTML(battletag, picks) {
     html.innerHTML = `
     <head>
     <meta charset="UTF-8">
@@ -33,43 +38,34 @@ function renderPicksHTML(myBattletag, enemyBattletag, picks, bans) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Picks</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/image-picker.js"></script>
 </head>
 <body>
     <div id="mainPageWrapper">
-        <div id="leftScreen">
-            <h1>${myBattletag}</h1>
-            <h3>Pick ${picks} heroes</h3>
-            <image id="friendlyDruid" class="classLogo"src="images/druid.png"></image>
-            <image id="friendlyHunter" class="classLogo" src="images/hunter.png"></image>
-            <image id="friendlyMage" class="classLogo" src="images/mage.png"></image>
-            <image id="friendlyPaladin" class="classLogo" src="images/paladin.png"></image>
-            <image id="friendlyPriest" class="classLogo" src="images/priest.png"></image>
-            <image id="friendlyRogue" class="classLogo" src="images/rogue.png"></image>
-            <image id="friendlyShaman" class="classLogo" src="images/shaman.png"></image>
-            <image id="friendlyWarlock" class="classLogo" src="images/warlock.png"></image>
-            <image id="friendlyWarrior" class="classLogo" src="images/warrior.png"></image>
-        </div>
-        <div id="rightScreen">
-            <h1>${enemyBattletag}</h1>
-            <h3>Pick ${picks} heroes</h3>
-            <image id="enemyDruid" class="classLogo"src="images/druid.png"></image>
-            <image id="enemyHunter" class="classLogo" src="images/hunter.png"></image>
-            <image id="enemyMage" class="classLogo" src="images/mage.png"></image>
-            <image id="enemyPaladin" class="classLogo" src="images/paladin.png"></image>
-            <image id="enemyPriest" class="classLogo" src="images/priest.png"></image>
-            <image id="enemyRogue" class="classLogo" src="images/rogue.png"></image>
-            <image id="enemyShaman" class="classLogo" src="images/shaman.png"></image>
-            <image id="enemyWarlock" class="classLogo" src="images/warlock.png"></image>
-            <image id="enemyWarrior" class="classLogo" src="images/warrior.png"></image>
-        </div>
-        
+        <h1>Player ${battletag}</h1>
+        <h3>Pick ${picks} heroes</h3>
+        <select class="imagePicker" class="classLogo" data-limit="3" multiple="multiple">
+            <option data-img-src="images/druid.png" data-img-class="classLogo" value="friendlyDruid">Druid</option>
+            <option data-img-src="images/hunter.png" data-img-class="classLogo" value="friendlyHunter">Hunter</option>
+            <option data-img-class="classLogo" data-img-src="images/mage.png" value="friendlyMage">Mage</option>
+            <option data-img-class="classLogo" data-img-src="images/paladin.png" value="friendlyPaladin">Paladin</option>
+            <option data-img-class="classLogo" data-img-src="images/priest.png" value="friendlyPriest">Priest</option>
+            <option data-img-class="classLogo" data-img-src="images/rogue.png" value="friendlyRogue">Rogue</option>
+            <option data-img-class="classLogo" data-img-src="images/shaman.png" value="friendlyShaman">Shaman</option>
+            <option data-img-class="classLogo" data-img-src="images/warlock.png" value="friendlyWarlock">Warlock</option>
+            <option data-img-class="classLogo" data-img-src="images/warrior.png" value="friendlyWarrior">Warrior</option>
+        </select>
+
+        <button id="friendlyBtn" type="button">Submit</button>
     </div>
     <footer id="footer">
         <p>Created by: <a href="https://github.com/panragon">PanRagon</a></p>
         <p>Contact me on <a href="https://twitter.com/PanRagon">Twitter</a> or <a href="mailto:christian.nicolai.iversen@gmail.com">email</a></p>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="assets/image-picker.js"></script>
     <script src="index.js"></script>
+
 </body>`
+
+setTimeout(function(){$("imagePicker").imagepicker({limit: 3})}, 0);
 }

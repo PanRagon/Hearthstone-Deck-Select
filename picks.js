@@ -8,20 +8,9 @@ var friendlyReady = false;
 var enemyReady = true;
 
 friendlyBtn.addEventListener("clicK", function() {
-    friendlyReady = true;
-    console.log("friendly hit");
-    if(enemyReady) {
-        renderBansHTML();
-    }
+    console.log("Hello");
 })
 
-enemyBtn.addEventListener("clicK", function() {
-    enemyReady = true;
-    console.log("enemy hit");
-    if(friendlyReady) {
-        renderBansHTML();
-    }
-})
 
 
 
