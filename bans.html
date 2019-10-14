@@ -4,9 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bans</title>
+    <title>Picks</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets/image-picker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/image-picker.js"></script>
 </head>
 <body>
-    
+    <div id="mainPageWrapper">
+        <div id="leftScreen">
+            <h1>Player 1</h1>
+            <h3>Pick x heroes</h3>
+            <select class="image-picker" class="classLogo" data-limit="3" multiple="multiple">
+                <option data-img-src="images/druid.png" data-img-class="classLogo" value="friendlyDruid">Druid</option>
+                <option data-img-src="images/hunter.png" data-img-class="classLogo" value="friendlyHunter">Hunter</option>
+                <option data-img-class="classLogo" data-img-src="images/mage.png" value="friendlyMage">Mage</option>
+                <option data-img-class="classLogo" data-img-src="images/paladin.png" value="friendlyPaladin">Paladin</option>
+                <option data-img-class="classLogo" data-img-src="images/priest.png" value="friendlyPriest">Priest</option>
+                <option data-img-class="classLogo" data-img-src="images/rogue.png" value="friendlyRogue">Rogue</option>
+                <option data-img-class="classLogo" data-img-src="images/shaman.png" value="friendlyShaman">Shaman</option>
+                <option data-img-class="classLogo" data-img-src="images/warlock.png" value="friendlyWarlock">Warlock</option>
+                <option data-img-class="classLogo" data-img-src="images/warrior.png" value="friendlyWarrior">Warrior</option>
+            </select>
+
+            <button id="friendlyBtn" type="button">Submit</button>
+        </div>
+        <div id="rightScreen">
+            <h1>Player 2</h1>
+            <h3>Ban x heroes</h3>
+
+            <select class="image-picker" class="classLogo" data-limit="3" multiple="multiple">
+                <option data-img-src="images/druid.png" data-img-class="classLogo" value="enemyDruid">Druid</option>
+                <option data-img-src="images/hunter.png" data-img-class="classLogo" value="enemyHunter">Hunter</option>
+                <option data-img-class="classLogo" data-img-src="images/mage.png" value="enemyMage">Mage</option>
+                <option data-img-class="classLogo" data-img-src="images/paladin.png" value="enemyPaladin">Paladin</option>
+                <option data-img-class="classLogo" data-img-src="images/priest.png" value="enemyPriest">Priest</option>
+                <option data-img-class="classLogo" data-img-src="images/rogue.png" value="enemyRogue">Rogue</option>
+                <option data-img-class="classLogo" data-img-src="images/shaman.png" value="enemyShaman">Shaman</option>
+                <option data-img-class="classLogo" data-img-src="images/warlock.png" value="enemyWarlock">Warlock</option>
+                <option data-img-class="classLogo" data-img-src="images/warrior.png" value="enemyWarrior">Warrior</option>
+            </select>
+
+            <button id="friendlyBtn" type="button">Submit</button>
+        </div>
+        <footer id="footer">
+            <p>Created by: <a href="https://github.com/panragon">PanRagon</a></p>
+            <p>Contact me on <a href="https://twitter.com/PanRagon">Twitter</a> or <a href="mailto:christian.nicolai.iversen@gmail.com">email</a></p>
+        </footer>
+        <script src="picks.js"></script>
+        
+    </div>
 </body>
 </html>

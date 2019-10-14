@@ -1,6 +1,7 @@
 var html = document.getElementById("html");
 var btn = document.getElementById("battletagBtn");
 
+
 btn.addEventListener("click", function() {
     var goToPickPage = true;
     var picksCount = document.getElementById("picksCount").value;
@@ -67,6 +68,8 @@ function renderPicksHTML(myBattletag, enemyBattletag, picks, bans) {
         <p>Created by: <a href="https://github.com/panragon">PanRagon</a></p>
         <p>Contact me on <a href="https://twitter.com/PanRagon">Twitter</a> or <a href="mailto:christian.nicolai.iversen@gmail.com">email</a></p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/image-picker.js"></script>
     <script src="index.js"></script>
 </body>`
 }
